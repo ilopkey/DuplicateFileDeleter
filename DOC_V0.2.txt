@@ -1,0 +1,61 @@
+Current Program Features:
+	Scans the directory given by the user
+	
+	Produces hashes of the files in the 
+	scanned directory
+	
+	Compares the file hashes and prints out 
+	groups of duplicate files to the user
+	
+	Allow the user to specify a file type
+	or group of file types to scan for
+	
+Features to add:
+	Allow the user to select a file from
+	each group of duplicates to keep
+	
+	Delete duplicate files that have been
+	selected by the user
+	
+	
+Current Version 2.0
+
+Changelog:
+	Problem: IOError given when main.py receives the full directory
+			 path, suspected error in creating the file path strings 
+			 in scan function as the error occured in the hash 
+			 function when attempting to open a file.
+	
+	Solution: Deleted code that added the output of os.getcwd() to the
+			  start of each file path. main.py now accepts both full
+			  and partial directory paths. Different outputs are given
+			  for full and partial paths, however this is just the strings
+			  outputted to the user that change, if a full path is given
+			  the full path is outputted with each file, if a partial path 
+			  is given then the partial file path is outputted.
+			  
+			  
+	Problem: Output to the user shows duplicate sets starting from 0,
+			 can be unintuitive to the user.
+			 
+	Solution: Output the increment of the list_pos and path_pos 
+			  variables for the user.
+	
+	
+	Problem: Implementing the feature to allow the user to select which
+			 file types they wish to scan for. Initial plan is to take
+			 input from the user, such as txt for a .txt file. Prefix the
+			 input with, *. , then remove all files that do no have the
+			 file type from the file_list list in main.py before the 
+			 file_list_hashes list is generated.
+			 
+			 Implemented the option for the user to choose single or
+			 multiple file types. Attempted to go through the file_list
+			 and remove any file names not containing the stated file type.
+			 This causes some files not to go through this selection process
+			 so needs redoing.
+			 
+	Solution: Use the scan function to generate a list of files, then if
+			  a file type or types have been specified loop through the
+			  list and add any files of the correct file type/s to a new
+			  list that will be used throughout the program.

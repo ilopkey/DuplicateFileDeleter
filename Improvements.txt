@@ -1,0 +1,50 @@
+Please follow the PEP 8 style guide: https://www.python.org/dev/peps/pep-0008 . 
+This is generally recognised as good practice and will ensure your code is easy 
+to read and maintain. Of particular importance are the commenting and naming conventions.
+
+	I have rewritten the code to follow these guidelines, I am not certain it follows
+	the guidelines precisely however the code looks a lot more readable
+	
+The dup_del_doc title is Duplicate Deleter v0.1 but the code 
+appears to be versioned 1.0 (from main.py)
+
+	I am now following standard version conventions, not sure why the
+	code was versioned 1.0
+	
+There is a block of commented-out code in main.py. It is poor practice to leave 
+commented-out code in there. By using source control, all historical code can be 
+retained without polluting the current code. Please remove commented-out code and 
+reserve comments for meaningful descriptions.
+
+	Removed the commmented out code
+	
+Why is file_hash_dict named as such when it is a list, not a dictionary?
+
+	It was previously a dictionary, however I rewrote the code without changing the name
+	
+What is dir_list for in main.py? Can this be removed?
+
+	My original plan for scanning the directory was to go through each sub directory
+	to find the files, however I found a much simpler method and so dir_list has been
+	removed.
+	
+Please describe the algorithm used in find_duplicates(), including the role of the “on” variable.
+
+	create file_dup list, this will be used to store the duplicates found
+	start a first loop through file_list using i to track the position
+	create on to equal 0, this will be used to keep track of if file_list[i] is on file_dup
+	start a second loop through file_list using j to track the position
+	check if i equals j, if so break the second loop, this prevents comparing the same file with itself
+	check if file_hash[i] equals file_hash[j], if so create a loop through file_dup
+	in the loop through file_dup check if file_list[i] is already on file_dup, if so set on to = 1
+	check that on = 0, if so add file_list[i] to file_dup
+	
+	I have reworked the algorithm to be much simpler and easier to read, and also have it
+	output a list containing lists of duplicates 
+	
+I was unable to run the tests since I do not have the test files. 
+Please rewrite so that anyone can run the test, no matter where the code is installed to
+
+	The tests have been rewritten so that they generate a test directory, populate it with
+	files then delete it after the test has been done
+	
