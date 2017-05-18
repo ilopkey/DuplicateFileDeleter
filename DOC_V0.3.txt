@@ -1,0 +1,40 @@
+Current Program Features:
+	Scans the directory given by the user
+	
+	Produces hashes of the files in the 
+	scanned directory
+	
+	Compares the file hashes and prints out 
+	groups of duplicate files to the user
+	
+	Allow the user to specify a file type
+	or group of file types to scan for
+	
+Features to add:
+	Allow the user to select a file from
+	each group of duplicates to keep
+	
+	Delete duplicate files that have been
+	selected by the user
+	
+	
+Current Version 3.0
+
+Changelog:
+	Problem: Implement feature to allow the user
+			 to select which duplicate files they
+			 want to keep. 
+			 
+			 Plan to add a prompt that allows the
+			 user to select a set of duplicates
+			 and then select which one they wish
+			 to keep.
+			 
+	Solution: Give the user the choice to either
+			  keep only the first duplicate from
+			  each set, select from each set which
+			  dupliacte they want to keep or to 
+			  select which sets they want to choose
+			  what duplicate to keep, keeping the 
+			  first duplicate from the rest of the 
+			  sets.
