@@ -29,11 +29,11 @@ if scan_range == '2':
 elif scan_range == '3':
     
     print ('You will now be asked to enter your chosen file types'
-		+ '\n'
+        + '\n'
         + 'Please enter them one at a time'
-		+ '\n'
+        + '\n'
         + 'When you are finished type DONE to continue'
-		+ '\n'
+        + '\n'
           )
     
     while True:
@@ -104,11 +104,11 @@ print ('Options: '
         + '\n\t'
         + '1. Keep the first duplicate listed from each set.'
         + '\n\t'
-	    + '2. Select from each set which duplicate you want to keep.'
+        + '2. Select from each set which duplicate you want to keep.'
         + '\n\t'
-	    + '3. Select which sets you wish to choose which duplicate you keep.'
+        + '3. Select which sets you wish to choose which duplicate you keep.'
         + '\n\t'
-	    + '   (Note any set you do not choose will only keep the first one)')
+        + '   (Note any set you do not choose will only keep the first one)')
 
 dup_selection_method = raw_input('Please enter your choice: ')
 
@@ -119,43 +119,43 @@ file_del = []
 #    add all files apart from the first to file_del
 
 if dup_selection_method == '1':
-	
-	for dup_list in file_dup:
-		
-		for dup_pos, dup_item in enumerate(dup_list):
-		
-			if dup_pos == 0:
-				continue
-			file_del.append(dup_item)
+    
+    for dup_list in file_dup:
+        
+        for dup_pos, dup_item in enumerate(dup_list):
+        
+            if dup_pos == 0:
+                continue
+            file_del.append(dup_item)
 
 # 2: Loop through file_dup, print out a list of duplicates then 
 #    ask the user which duplicate they want to keep then add
 #    the rest to file_dup
 
 elif dup_selection_method == '2':
-	
-	for list_pos, dup_list in enumerate(file_dup):
-		
-		print 'Duplicate Set %i: ' % (list_pos+1)
+    
+    for list_pos, dup_list in enumerate(file_dup):
+        
+        print 'Duplicate Set %i: ' % (list_pos+1)
 
-		for path_pos, dup_file_path in enumerate(dup_list):
-			
-			print '%i: %s' % (path_pos+1, dup_file_path)
-			
-		while True:
-			keep = input('Which duplicate do you wish to keep: ')
-			if keep < len(dup_list) or keep > 1: 
-				keep = keep - 1
-				break
-			else:
-				print 'Position given not on list, try again'
-		
-		for dup_path in dup_list:
-		
-			if dup_path == dup_list[keep]:
-				continue
-			else:
-				file_del.append(dup_path)
+        for path_pos, dup_file_path in enumerate(dup_list):
+            
+            print '%i: %s' % (path_pos+1, dup_file_path)
+            
+        while True:
+            keep = input('Which duplicate do you wish to keep: ')
+            if keep < len(dup_list) or keep > 1: 
+                keep = keep - 1
+                break
+            else:
+                print 'Position given not on list, try again'
+        
+        for dup_path in dup_list:
+        
+            if dup_path == dup_list[keep]:
+                continue
+            else:
+                file_del.append(dup_path)
 
 # 3: Get the number of a list from the user, print out the list
 #    then get the number of the file the suer wants to keep, then
@@ -164,74 +164,85 @@ elif dup_selection_method == '2':
 #    list as the file to keep
 
 elif dup_selection_method == '3':
-	
-	print ('Enter the no. of the list to specify which'
-		+ 'duplicate you want to keep'
-		+ '\n'
-		+ 'When you are done enter DONE to continue')
-		
-	# Track which lists of duplicates have been scanned
-	lists_scanned = []
-	
-	while True:
-		
-		cur_list = raw_input('List No. : ')
-		
-		# Input Checks
-		
-		# Check if the user wants to stop
-		if cur_list == 'DONE':
-			break
-		
-		# Check the input is a number
-		try:
-			cur_list = int(cur_list)
-		except ValueError:
-			print 'Wrong Value given, enter either DONE or a number'
-			continue
-		
-		# Check input is in the range of file_dup
-		if cur_list > len(file_dup) or cur_list < 1:
-			print 'There are %i lists of duplicates' % len(file_dup)
-			continue
-		
-		# Check the list hasn't already been scanned
-		scanned = False
-		
-		cur_list = cur_list - 1
-		
-		for i in lists_scanned:
-			if i == cur_list:
-				scanned = True
-		if scanned == True:
-			print 'A duplicate has already been chosen for this list.'
-			continue
-		
-		
-		# Print the list to the user
-		
-		for file_pos, file_item in enumerate(file_dup[cur_list]):
-			
-			print '%i: %s' % (file_pos+1, file_item)
-		
-		keep = 0
-		
-		while True:
-			keep = input('Enter file no. to keep: ')
-			
-			if keep > len(file_dup[cur_list]) or keep < 1:
-				print 'No. given is not on this list'
-			else:
-				break
-				
-		for file_pos, file_item in file_dup[cur_list]:
-			if file_pos == keep:
-				continue
-			else:
-				file_del.append(file_item)
-				
-		lists_scanned.append(cur_list)
-		
+    
+    print ('Enter the no. of the list to specify which'
+        + 'duplicate you want to keep'
+        + '\n'
+        + 'When you are done enter DONE to continue')
+        
+    # Track which lists of duplicates have been scanned
+    lists_scanned = []
+    
+    while True:
+        
+        cur_list = raw_input('List No. : ')
+        
+        # Input Checks
+        
+        # Check if the user wants to stop
+        if cur_list == 'DONE':
+            break
+        
+        # Check the input is a number
+        try:
+            cur_list = int(cur_list)
+        except ValueError:
+            print 'Wrong Value given, enter either DONE or a number'
+            continue
+        
+        # Check input is in the range of file_dup
+        if cur_list > len(file_dup) or cur_list < 1:
+            print 'There are %i lists of duplicates' % len(file_dup)
+            continue
+        
+        # Check the list hasn't already been scanned
+        scanned = False
+        
+        cur_list = cur_list - 1
+        
+        for i in lists_scanned:
+            if i == cur_list:
+                scanned = True
+        if scanned == True:
+            print 'A duplicate has already been chosen for this list.'
+            continue
+        
+        
+        # Print the list to the user
+        
+        for file_pos, file_item in enumerate(file_dup[cur_list]):
+            
+            print '%i: %s' % (file_pos+1, file_item)
+        
+        keep = 0
+        
+        while True:
+            keep = input('Enter file no. to keep: ')
+            
+            if keep > len(file_dup[cur_list]) or keep < 1:
+                print 'No. given is not on this list'
+            else:
+                break
+                
+        
+        for file_pos, file_item in enumerate(file_dup[cur_list]):
+            if file_pos == keep-1:
+                continue
+            else:
+                file_del.append(file_item)
+                
+        lists_scanned.append(cur_list)
+    
+        for list_pos, list_item in enumerate(file_dup):
+            
+            if list_pos in lists_scanned:
+                continue
+                
+            for file in list_item:
+                file_del.append(file)
+        
+print file_del
+        
 # TO ADD: A way to specify which file from a set of
 #         duplicates the user wants to keep, default
 #         will be the first in the list
