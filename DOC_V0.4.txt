@@ -1,0 +1,33 @@
+Current Program Features:
+	Scans the directory given by the user
+	
+	Produces hashes of the files in the 
+	scanned directory
+	
+	Compares the file hashes and prints out 
+	groups of duplicate files to the user
+	
+	Allow the user to specify a file type
+	or group of file types to scan for
+	
+	Allow the user to select a file from
+	each group of duplicates to keep
+	
+Features to add:
+	
+	Delete duplicate files that have been
+	selected by the user
+	
+	
+Current Version 3.0
+
+Changelog:
+	Problem: Have the program delete files
+			 that are duplicates. These should
+			 be stored in a list so my initial
+			 plan is to loop through the list,
+			 check the file exists then delete it
+			 
+	Solution: Implemented the inital plan, with a
+			  check to make sure the user wants to
+			  delete the files.
