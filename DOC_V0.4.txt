@@ -13,8 +13,6 @@ Current Program Features:
 	Allow the user to select a file from
 	each group of duplicates to keep
 	
-Features to add:
-	
 	Delete duplicate files that have been
 	selected by the user
 	
@@ -31,3 +29,8 @@ Changelog:
 	Solution: Implemented the inital plan, with a
 			  check to make sure the user wants to
 			  delete the files.
+			   
+	Problem: Need to catch any inputs that cause
+			 errors in the program. Plan to add
+			 try except clauses around any input
+			 that could raise errors.

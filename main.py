@@ -14,7 +14,8 @@ scan_range = raw_input('Please select from the following options:'
                        + '2. Scan a specific file type'
                        + '\n\t'
                        + '3. Scan multiple specific file types'
-                       + '\n\t'
+                       + '\n'
+					   + 'Please enter your choice: '
                       )
 
 
@@ -144,8 +145,13 @@ elif dup_selection_method == '2':
             print '%i: %s' % (path_pos+1, dup_file_path)
             
         while True:
-            keep = input('Which duplicate do you wish to keep: ')
-            if keep < len(dup_list) or keep > 1: 
+			try:
+				keep = input('Which duplicate do you wish to keep: ')
+			except:
+				print 'Incorrect input given'
+				continue
+			
+            if keep < len(dup_list) and keep > 0: 
                 keep = keep - 1
                 break
             else:
@@ -218,8 +224,12 @@ elif dup_selection_method == '3':
         keep = 0
         
         while True:
-            keep = input('Enter file no. to keep: ')
-            
+			try:
+				keep = input('Enter file no. to keep: ')
+            except:
+				print 'Incorrect input given'
+				break
+			
             if keep > len(file_dup[cur_list]) or keep < 1:
                 print 'No. given is not on this list'
             else:
@@ -270,8 +280,3 @@ if delete_files == 'Yes':
 	
 else:
 	print 'No files deleted, program exiting.'
-# TO ADD: A way to specify which file from a set of
-#         duplicates the user wants to keep, default
-#         will be the first in the list
-#
-#         Have the program delete the duplicate files
